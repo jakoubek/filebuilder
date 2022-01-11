@@ -8,7 +8,7 @@ import (
 
 type Application struct {
 	WorkingDirectory string
-	FilelistFile     string
+	FileindexFile    string
 	OutputFile       string
 	force            bool
 	filenames        []string
@@ -21,7 +21,7 @@ func NewApplication(opts ...ApplicationConfig) *Application {
 
 	app := Application{
 		WorkingDirectory: "",
-		FilelistFile:     "",
+		FileindexFile:    "",
 		OutputFile:       "",
 		force:            false,
 	}
@@ -38,12 +38,12 @@ func NewApplication(opts ...ApplicationConfig) *Application {
 	return &app
 }
 
-func WithFilelist(filelistFile string) ApplicationConfig {
+func WithFilelist(fileindexFile string) ApplicationConfig {
 	return func(app *Application) {
-		app.FilelistFile = filelistFile
+		app.FileindexFile = fileindexFile
 
 		if app.WorkingDirectory == "" {
-			wd := filepath.Dir(app.FilelistFile)
+			wd := filepath.Dir(app.FileindexFile)
 			app.WorkingDirectory = wd
 		}
 	}

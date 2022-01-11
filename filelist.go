@@ -7,7 +7,7 @@ import (
 
 func (app *Application) ReadFilelist() (int, error) {
 
-	file, err := os.Open(app.FilelistFile)
+	file, err := os.Open(app.FileindexFile)
 	if err != nil {
 		return 0, err
 	}
